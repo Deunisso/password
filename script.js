@@ -1,4 +1,4 @@
-const correctWord = "abcdefgh"; // A palavra correta com 8 letras
+const correctWord = "tay"; // A palavra correta com 8 letras
 const correctNumber = 3; // O número a ser exibido se a palavra estiver correta
 
 function checkWord() {
