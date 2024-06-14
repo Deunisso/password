@@ -2,11 +2,13 @@ const correctKeys = ["Tay", "tay", "Tayara", "tayara"]; // Lista de palavras cor
 const correctNumber = 3; // O número a ser exibido se a palavra estiver correta
 
 function checkWord() {
-    const wordInput = document.getElementById('wordInput').value.trim(); // Obtém a entrada do usuário e remove espaços extras no início e no final
+    const userInput = document.getElementById('wordInput').value.trim().toLowerCase(); // Obtém a entrada do usuário, remove espaços extras e converte para minúsculas
     const resultElement = document.getElementById('result');
     
-    // Verifica se a entrada do usuário corresponde a alguma das palavras corretas
-    if (correctKeys.includes(wordInput)) {
+    // Verifica se a entrada do usuário contém pelo menos uma das palavras corretas
+    const containsCorrectWord = correctKeys.some(word => userInput.includes(word.toLowerCase()));
+
+    if (containsCorrectWord) {
         resultElement.textContent = `Parabéns! O número é: ${correctNumber}`;
         resultElement.style.color = 'green';
     } else {
