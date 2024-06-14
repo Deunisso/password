@@ -27,21 +27,20 @@
             }, 2000); // Tempo em milissegundos (2 segundos para este exemplo)
         }
     </script>
-
-<body onload="preload()">
+    
+<body>
+<div onload="preload()">
     <!-- Preloading -->
     <div id="preloader" style="display: block; width: 100%; height: 100%; position: fixed; top: 0; left: 0; background-color: #CBC3E3; z-index: 9999;">
         <img src="Koya.gif" alt="Preloading" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
     </div>
 
-    <div id="body">
     <div class="container">
         <h1>Te amo 💜</h1>
         <input type="text" id="wordInput" placeholder="Digite aqui, meu amor...">
         <button onclick="checkWord()">Verificar</button>
         <p id="result"></p>
     </div>
-    </div>    
     
     <script>
         document.getElementById('wordInput').addEventListener('input', function(event) {
