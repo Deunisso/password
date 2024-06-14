@@ -5,7 +5,7 @@ document.getElementById('codeForm').addEventListener('submit', function(event) {
     const resultDiv = document.getElementById('result');
 
     if (validCodes.includes(userInput)) {
-        resultDiv.textContent = 'Código válido!';
+        resultDiv.textContent = '823';
     } else {
         resultDiv.textContent = 'Código incorreto!';
     }
