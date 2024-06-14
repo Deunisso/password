@@ -7,13 +7,33 @@
     <title>Amor</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-    
+
+    <script>
+        function preload() {
+            var preloadImage = new Image();
+            preloadImage.src = "Koya.gif";
+            setTimeout(function() {
+                // Verifica se o elemento #preloader existe antes de tentar acessá-lo
+                var preloader = document.getElementById("preloader");
+                if (preloader) {
+                    preloader.style.display = "none";
+                }
+
+                // Verifica se o elemento #content existe antes de tentar acessá-lo
+                var content = document.getElementById("content");
+                if (content) {
+                    content.style.display = "block";
+                }
+            }, 2000); // Tempo em milissegundos (2 segundos para este exemplo)
+        }
+    </script>
+
 <body onload="preload()">
     <!-- Preloading -->
     <div id="preloader" style="display: block; width: 100%; height: 100%; position: fixed; top: 0; left: 0; background-color: #CBC3E3; z-index: 9999;">
         <img src="Koya.gif" alt="Preloading" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
     </div>
-
+    
     <div class="container">
         <h1>Te amo 💜</h1>
         <input type="text" id="wordInput" placeholder="Digite aqui, meu amor...">
@@ -21,6 +41,11 @@
         <p id="result"></p>
     </div>
     
+    <script>
+        document.getElementById('wordInput').addEventListener('input', function(event) {
+            this.value = this.value.replace(/[^a-zA-Z]/g, '');
+        });
+    </script>
     <script src="script.js"></script>
     
 </body>
