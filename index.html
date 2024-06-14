@@ -7,47 +7,60 @@
     <title>Amor</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-
-    <script>
-        function preload() {
-            var preloadImage = new Image();
-            preloadImage.src = "Koya.gif";
-            setTimeout(function() {
-                // Verifica se o elemento #preloader existe antes de tentar acessá-lo
-                var preloader = document.getElementById("preloader");
-                if (preloader) {
-                    preloader.style.display = "none";
-                }
-
-                // Verifica se o elemento #content existe antes de tentar acessá-lo
-                var content = document.getElementById("content");
-                if (content) {
-                    content.style.display = "block";
-                }
-            }, 2000); // Tempo em milissegundos (2 segundos para este exemplo)
-        }
-    </script>
-    
-<body>
-<div onload="preload()">
+<body onload="preload()">
     <!-- Preloading -->
     <div id="preloader" style="display: block; width: 100%; height: 100%; position: fixed; top: 0; left: 0; background-color: #CBC3E3; z-index: 9999;">
         <img src="Koya.gif" alt="Preloading" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
     </div>
 
-    <div class="container">
-        <h1>Te amo 💜</h1>
-        <input type="text" id="wordInput" placeholder="Digite aqui, meu amor...">
-        <button onclick="checkWord()">Verificar</button>
-        <p id="result"></p>
+    <div id="content" style="visibility: hidden;">
+        <div class="container">
+            <h1>Te amo 💜</h1>
+            <input type="text" id="wordInput" placeholder="Digite aqui, meu amor...">
+            <button onclick="checkWord()">Verificar</button>
+            <p id="result"></p>
+        </div>
     </div>
     
     <script>
+        function preload() {
+            var preloadImage = new Image();
+            preloadImage.src = "Koya.gif";
+            setTimeout(function() {
+                var preloader = document.getElementById("preloader");
+                if (preloader) {
+                    preloader.style.display = "none";
+                }
+
+                var content = document.getElementById("content");
+                if (content) {
+                    content.style.visibility = "visible";
+                }
+            }, 2000); // Tempo em milissegundos (2 segundos para este exemplo)
+        }
+
         document.getElementById('wordInput').addEventListener('input', function(event) {
             this.value = this.value.replace(/[^a-zA-Z]/g, '');
         });
+
+        const correctKeys = ["Tay", "tay", "Tayara", "tayara"]; // Lista de palavras corretas
+        const correctNumber = 3; // O número a ser exibido se a palavra estiver correta
+
+        function checkWord() {
+            const userInput = document.getElementById('wordInput').value.trim().toLowerCase(); // Obtém a entrada do usuário, remove espaços extras e converte para minúsculas
+            const resultElement = document.getElementById('result');
+            
+            // Verifica se a entrada do usuário contém pelo menos uma das palavras corretas
+            const containsCorrectWord = correctKeys.some(word => userInput.includes(word.toLowerCase()));
+
+            if (containsCorrectWord) {
+                resultElement.textContent = `Parabéns! O número é: ${correctNumber}`;
+                resultElement.style.color = 'green';
+            } else {
+                resultElement.textContent = 'Palavra incorreta. Tente novamente.';
+                resultElement.style.color = 'red';
+            }
+        }
     </script>
-    <script src="script.js"></script>
-    
 </body>
 </html>
