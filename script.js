@@ -1,4 +1,3 @@
-<script>
 const correctKeys = ["Tay", "tay", "Tayara", "tayara"]; // Lista de palavras corretas
 const correctNumber = 3; // O número a ser exibido se a palavra estiver correta
 
@@ -17,9 +16,7 @@ function checkWord() {
         resultElement.style.color = 'red';
     }
 }
-</script>
 
-<script>
     function preload() {
         var preloadImage = new Image();
         preloadImage.src = "Koya.gif";
@@ -37,11 +34,7 @@ function checkWord() {
             }
         }, 2000); // Tempo em milissegundos (2 segundos para este exemplo)
     }
-</script>
 
-<script>
     document.getElementById('wordInput').addEventListener('input', function(event) {
         this.value = this.value.replace(/[^a-zA-Z]/g, '');
     });
-</script>
-
