@@ -38,3 +38,10 @@ function checkWord() {
         }, 2000); // Tempo em milissegundos (2 segundos para este exemplo)
     }
 </script>
+
+<script>
+    document.getElementById('wordInput').addEventListener('input', function(event) {
+        this.value = this.value.replace(/[^a-zA-Z]/g, '');
+    });
+</script>
+
