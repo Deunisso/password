@@ -1,3 +1,4 @@
+<script>
 const correctKeys = ["Tay", "tay", "Tayara", "tayara"]; // Lista de palavras corretas
 const correctNumber = 3; // O número a ser exibido se a palavra estiver correta
 
@@ -16,3 +17,24 @@ function checkWord() {
         resultElement.style.color = 'red';
     }
 }
+</script>
+
+<script>
+    function preload() {
+        var preloadImage = new Image();
+        preloadImage.src = "Koya.gif";
+        setTimeout(function() {
+            // Verifica se o elemento #preloader existe antes de tentar acessá-lo
+            var preloader = document.getElementById("preloader");
+            if (preloader) {
+                preloader.style.display = "none";
+            }
+                
+            // Verifica se o elemento #content existe antes de tentar acessá-lo
+            var content = document.getElementById("content");
+            if (content) {
+                content.style.display = "block";
+            }
+        }, 2000); // Tempo em milissegundos (2 segundos para este exemplo)
+    }
+</script>
