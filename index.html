@@ -13,7 +13,7 @@
         <img src="Koya.gif" alt="Preloading" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
     </div>
 
-    <div id="content" style="visibility: hidden;">
+    <div id="content" style="display: none;">
         <div class="container">
             <h1>Te amo 💜</h1>
             <input type="text" id="wordInput" placeholder="Digite aqui, meu amor...">
@@ -34,7 +34,7 @@
 
                 var content = document.getElementById("content");
                 if (content) {
-                    content.style.visibility = "visible";
+                    content.style.display = "block";
                 }
             }, 2000); // Tempo em milissegundos (2 segundos para este exemplo)
         }
