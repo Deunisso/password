@@ -9,15 +9,22 @@
 </head>
     
     <script>
-        // Função para preloading da imagem por 5 segundos
         function preload() {
             var preloadImage = new Image();
             preloadImage.src = "Koya.gif";
             setTimeout(function() {
-                // Após 5 segundos, mostrar a imagem e carregar a página
-                document.getElementById("preloader").style.display = "none";
-                document.getElementById("content").style.display = "block";
-            }, 2000); // Tempo em milissegundos (5 segundos)
+                // Verifica se o elemento #preloader existe antes de tentar acessá-lo
+                var preloader = document.getElementById("preloader");
+                if (preloader) {
+                    preloader.style.display = "none";
+                }
+                
+                // Verifica se o elemento #content existe antes de tentar acessá-lo
+                var content = document.getElementById("content");
+                if (content) {
+                    content.style.display = "block";
+                }
+            }, 2000); // Tempo em milissegundos (2 segundos para este exemplo)
         }
     </script>
 
