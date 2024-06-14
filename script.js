@@ -16,25 +16,3 @@ function checkWord() {
         resultElement.style.color = 'red';
     }
 }
-
-    function preload() {
-        var preloadImage = new Image();
-        preloadImage.src = "Koya.gif";
-        setTimeout(function() {
-            // Verifica se o elemento #preloader existe antes de tentar acessá-lo
-            var preloader = document.getElementById("preloader");
-            if (preloader) {
-                preloader.style.display = "none";
-            }
-                
-            // Verifica se o elemento #content existe antes de tentar acessá-lo
-            var content = document.getElementById("content");
-            if (content) {
-                content.style.display = "block";
-            }
-        }, 2000); // Tempo em milissegundos (2 segundos para este exemplo)
-    }
-
-    document.getElementById('wordInput').addEventListener('input', function(event) {
-        this.value = this.value.replace(/[^a-zA-Z]/g, '');
-    });
