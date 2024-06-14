@@ -3,61 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="favicon.png" type="image/png">
-    <title>Amor</title>
+    <title>Verificação de Código</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-    
 <body>
     <div class="container">
-        <h1>Te amo 💜</h1>
-        <input type="text" id="wordInput" placeholder="Digite aqui, meu amor...">
-        <button onclick="checkWord()">Verificar</button>
-        <p id="result"></p>
+        <h1>Verificação de Código</h1>
+        <form id="codeForm">
+            <input type="text" id="userInput" placeholder="Digite algo..." required>
+            <button type="submit">Verificar</button>
+        </form>
+        <div id="result"></div>
     </div>
-    
-    <script>
-        function preload() {
-            var preloadImage = new Image();
-            preloadImage.src = "Koya.gif";
-            setTimeout(function() {
-                var preloader = document.getElementById("preloader");
-                if (preloader) {
-                    preloader.classList.add('hidden');
-                }
-
-                var content = document.getElementById("content");
-                if (content) {
-                    content.classList.remove('hidden');
-                }
-            }, 2000); // Tempo em milissegundos (2 segundos para este exemplo)
-        }
-
-        window.onload = preload;
-
-        document.getElementById('wordInput').addEventListener('input', function(event) {
-            this.value = this.value.replace(/[^a-zA-Z]/g, '');
-        });
-
-        const correctKeys = ["Tay", "tay", "Tayara", "tayara"]; // Lista de palavras corretas
-        const correctNumber = 3; // O número a ser exibido se a palavra estiver correta
-
-        function checkWord() {
-            const userInput = document.getElementById('wordInput').value.trim().toLowerCase(); // Obtém a entrada do usuário, remove espaços extras e converte para minúsculas
-            const resultElement = document.getElementById('result');
-            
-            // Verifica se a entrada do usuário contém pelo menos uma das palavras corretas
-            const containsCorrectWord = correctKeys.some(word => userInput.includes(word.toLowerCase()));
-
-            if (containsCorrectWord) {
-                resultElement.textContent = `Parabéns! O número é: ${correctNumber}`;
-                resultElement.style.color = 'green';
-            } else {
-                resultElement.textContent = 'Palavra incorreta. Tente novamente.';
-                resultElement.style.color = 'red';
-            }
-        }
-    </script>
-    
+    <script src="script.js"></script>
 </body>
 </html>
