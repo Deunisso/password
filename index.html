@@ -70,15 +70,18 @@
             <input type="text" id="answer1" class="answer-input" placeholder="Digite sua resposta...">
             <button onclick="checkAnswer1()" class="submit-button">Verificar Resposta</button>
         </div>
+        
         <div class="question" id="question2" style="display: none;">
             <h2>Pergunta 2</h2>
             <p>Qual a soma dos quadrados vermelhos do sudoku B?</p>
             <input type="number" id="answer2" class="answer-input" placeholder="Digite sua resposta...">
             <button onclick="checkAnswer2()" class="submit-button">Verificar Resposta</button>
         </div>
+        
         <button id="nextButton" class="submit-button" style="display: none;" onclick="showQuestion2()">Próxima Pergunta</button>
         <p id="result"></p>
     </div>
+    
     <script>
         function checkAnswer1() {
             var answer1 = document.getElementById('answer1').value.trim().toLowerCase();
@@ -91,6 +94,7 @@
                 document.getElementById('result').textContent = "Resposta incorreta. Tente novamente.";
             }
         }
+        
         function checkAnswer2() {
             var answer2 = document.getElementById('answer2').value.trim();
             var somaQuadrados = "5";  // Soma dos quadrados vermelhos
@@ -102,10 +106,12 @@
                 document.getElementById('result').textContent = "Resposta incorreta. Tente novamente.";
             }
         }
+        
         function showQuestion2() {
             document.getElementById('question2').style.display = 'block';
             document.getElementById('nextButton').style.display = 'none';
         }
     </script>
+    
 </body>
 </html>
