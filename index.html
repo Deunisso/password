@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Desafio HTML</title>
-</head>    
-    
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -41,7 +39,7 @@
             background-color: #45a049;
         }
     </style>
-    
+</head>
 <body>
     <div class="container">
         <h2>Desafio HTML</h2>
@@ -62,8 +60,12 @@
             var answer1 = document.getElementById('answer1').value.trim().toLowerCase();
             var answer2 = document.getElementById('answer2').value.trim();
 
-            // Verificar respostas
-            if (answer1 === "Tay" && answer2 === "5") {
+            // Respostas corretas
+            var respostaCruzadinha = "tayara";  // Resposta da cruzadinha
+            var somaQuadrados = "5";             // Soma dos quadrados vermelhos
+
+            // Verificar se ambas as respostas estão corretas
+            if ((answer1 === "tay" || answer1 === "tayara") && answer2 === somaQuadrados) {
                 document.getElementById('result').textContent = "Código: 823";
             } else {
                 document.getElementById('result').textContent = "Respostas incorretas. Tente novamente.";
