@@ -3,63 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Desafio HTML</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #CBC3E3;
-        }
-        .container {
-            max-width: 600px;
-            width: 100%;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            text-align: center; /* Centralizar texto dentro do contêiner */
-            display: flex;
-            flex-direction: column; /* Ajustar para layout de coluna */
-            justify-content: center; /* Centralizar verticalmente */
-            align-items: center; /* Centralizar horizontalmente */
-        }
-        .question {
-            margin-bottom: 20px;
-        }
-        .answer-input {
-            width: calc(100% - 20px);
-            padding: 10px;
-            margin-top: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-            font-size: 16px;
-        }
-        .submit-button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 12px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-            margin-top: 10px;
-        }
-        .submit-button:hover {
-            background-color: #45a049;
-        }
-        .result-image {
-            max-width: 100%;
-            height: auto;
-            margin-bottom: 20px;
-            border-radius: 8px;
-        }
-    </style>
+    <link rel="icon" href="favicon.png" type="image/png">
+    <title>Password</title>
 </head>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #CBC3E3;
+    }
+
+    .container {
+        max-width: 600px;
+        width: 100%;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        text-align: center; /* Centralizar texto dentro do contêiner */
+        display: flex;
+        flex-direction: column; /* Ajustar para layout de coluna */
+        justify-content: center; /* Centralizar verticalmente */
+        align-items: center; /* Centralizar horizontalmente */
+    }
+
+    .question {
+        margin-bottom: 20px;
+    }
+
+    .answer-input {
+        width: calc(100% - 20px);
+        padding: 10px;
+        margin-top: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        font-size: 16px;
+    }
+
+    .submit-button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        margin-top: 10px;
+     }
+
+    .submit-button:hover {
+        background-color: #45a049;
+    }
+    </style>
+
 <body>
     <div class="container">
         <div class="question" id="question1">
@@ -75,48 +77,34 @@
             <button onclick="checkAnswer2()" class="submit-button">Verificar Resposta</button>
         </div>
         <button id="nextButton" class="submit-button" style="display: none;" onclick="showQuestion2()">Próxima Pergunta</button>
-        <div id="resultContainer">
-            <img src="cadeado.png" alt="Imagem de cadeado" class="result-image" style="display: none;">
-            <p id="result"></p>
-        </div>
+        <p id="result"></p>
     </div>
-
     <script>
         function checkAnswer1() {
             var answer1 = document.getElementById('answer1').value.trim().toLowerCase();
             var respostaCruzadinha = "tayara";  // Resposta da cruzadinha
-
             if (answer1 === "tay" || answer1 === "tayara") {
                 document.getElementById('result').textContent = "Resposta correta! Agora responda a próxima pergunta.";
                 document.getElementById('question1').style.display = 'none';
                 document.getElementById('nextButton').style.display = 'block';
-                document.getElementById('resultContainer').style.display = 'block';
-                document.querySelector('.result-image').style.display = 'block';
             } else {
                 document.getElementById('result').textContent = "Resposta incorreta. Tente novamente.";
             }
         }
-
         function checkAnswer2() {
             var answer2 = document.getElementById('answer2').value.trim();
             var somaQuadrados = "5";  // Soma dos quadrados vermelhos
-
             if (answer2 === somaQuadrados) {
-                document.getElementById('result').textContent = "Código: 823";
+                document.getElementById('result').textContent = "Senha: 823";
                 document.getElementById('question2').style.display = 'none';
-                document.getElementById('resultContainer').style.display = 'block';
-                document.querySelector('.result-image').style.display = 'block';
                 document.getElementById('result').style.fontWeight = 'bold'; // Deixar o resultado em negrito
             } else {
                 document.getElementById('result').textContent = "Resposta incorreta. Tente novamente.";
             }
         }
-
         function showQuestion2() {
             document.getElementById('question2').style.display = 'block';
             document.getElementById('nextButton').style.display = 'none';
-            document.getElementById('resultContainer').style.display = 'none'; // Ocultar resultado ao mostrar a próxima pergunta
-            document.querySelector('.result-image').style.display = 'none'; // Ocultar imagem ao mostrar a próxima pergunta
         }
     </script>
 </body>
