@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Desafio HTML</title>
-</head> 
-    
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -45,42 +43,54 @@
             border-radius: 4px;
             cursor: pointer;
             font-size: 16px;
+            display: none; /* Inicialmente oculto */
         }
         .submit-button:hover {
             background-color: #45a049;
         }
     </style>
-
+</head>
 <body>
     <div class="container">
-        <div class="question">
+        <div class="question" id="question1">
             <h2>Pergunta 1</h2>
             <p>Qual a resposta da cruzadinha?</p>
             <input type="text" id="answer1" class="answer-input" placeholder="Digite sua resposta...">
+            <button onclick="checkAnswer1()" class="submit-button">Verificar Resposta</button>
         </div>
-        <div class="question">
+        <div class="question" id="question2" style="display: none;">
             <h2>Pergunta 2</h2>
             <p>Qual a soma dos quadrados vermelhos do sudoku B?</p>
             <input type="number" id="answer2" class="answer-input" placeholder="Digite sua resposta...">
+            <button onclick="checkAnswer2()" class="submit-button">Verificar Resposta</button>
         </div>
-        <button onclick="checkAnswers()" class="submit-button">Verificar Respostas</button>
         <p id="result"></p>
     </div>
 
     <script>
-        function checkAnswers() {
+        function checkAnswer1() {
             var answer1 = document.getElementById('answer1').value.trim().toLowerCase();
-            var answer2 = document.getElementById('answer2').value.trim();
-
-            // Respostas corretas
             var respostaCruzadinha = "tayara";  // Resposta da cruzadinha
-            var somaQuadrados = "5";             // Soma dos quadrados vermelhos
 
-            // Verificar se ambas as respostas estão corretas
-            if ((answer1 === "tay" || answer1 === "tayara") && answer2 === somaQuadrados) {
-                document.getElementById('result').textContent = "Código: 823";
+            if (answer1 === "tay" || answer1 === "tayara") {
+                document.getElementById('result').textContent = "Resposta correta! Agora responda a próxima pergunta.";
+                document.getElementById('question1').style.display = 'none';
+                document.getElementById('question2').style.display = 'block';
             } else {
-                document.getElementById('result').textContent = "Respostas incorretas. Tente novamente.";
+                document.getElementById('result').textContent = "Resposta incorreta. Tente novamente.";
+            }
+        }
+
+        function checkAnswer2() {
+            var answer2 = document.getElementById('answer2').value.trim();
+            var somaQuadrados = "5";  // Soma dos quadrados vermelhos
+
+            if (answer2 === somaQuadrados) {
+                document.getElementById('result').textContent = "Código: 823";
+                document.getElementById('question2').style.display = 'none';
+                document.getElementById('result').style.fontWeight = 'bold'; // Deixar o resultado em negrito
+            } else {
+                document.getElementById('result').textContent = "Resposta incorreta. Tente novamente.";
             }
         }
     </script>
