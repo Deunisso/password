@@ -3,18 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Verificação de Código</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
+    <title>Desafio HTML</title>
+</head>    
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .answer-input {
+            width: 80%;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        .submit-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .submit-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+    
 <body>
     <div class="container">
-        <h1>Verificação de Código</h1>
-        <form id="codeForm">
-            <input type="text" id="userInput" placeholder="Digite algo..." required>
-            <button type="submit">Verificar</button>
-        </form>
-        <div id="result"></div>
+        <h2>Desafio HTML</h2>
+        <div class="question">
+            <p>Qual a resposta da cruzadinha?</p>
+            <input type="text" id="answer1" class="answer-input" placeholder="Digite sua resposta...">
+        </div>
+        <div class="question">
+            <p>Qual a soma dos quadrados vermelhos do sudoku B?</p>
+            <input type="number" id="answer2" class="answer-input" placeholder="Digite sua resposta...">
+        </div>
+        <button onclick="checkAnswers()" class="submit-button">Verificar Respostas</button>
+        <p id="result"></p>
     </div>
-    <script src="script.js"></script>
+
+    <script>
+        function checkAnswers() {
+            var answer1 = document.getElementById('answer1').value.trim().toLowerCase();
+            var answer2 = document.getElementById('answer2').value.trim();
+
+            // Verificar respostas
+            if (answer1 === "Tay" && answer2 === "5") {
+                document.getElementById('result').textContent = "Código: 823";
+            } else {
+                document.getElementById('result').textContent = "Respostas incorretas. Tente novamente.";
+            }
+        }
+    </script>
 </body>
 </html>
